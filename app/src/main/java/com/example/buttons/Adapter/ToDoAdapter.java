@@ -37,6 +37,7 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder>{
     public void onBindViewHolder(ViewHolder holder, final int position) {
         Log.d(TAG, "onBindViewHolder: called.");
         holder.Tasks.setText(mTasks.get(position));
+
     }
 
     @Override
