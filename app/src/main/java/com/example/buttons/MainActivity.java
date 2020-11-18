@@ -62,21 +62,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-
-
-/**
- * Gambar Logo Homepage
- */
-        ImageView logosImage = (ImageView) findViewById(R.id.logosImage);
-        int imageResource = getResources().getIdentifier("@drawable/iu_icons3", null, this.getPackageName());
-        logosImage.setImageResource(imageResource);
-
-    }
-
-
-
-
-
     /**
      * Make a yes or no pop up when back navigation is pressed
      */
