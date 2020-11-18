@@ -5,7 +5,7 @@
     android:id="@+id/relativeLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/first_walpp">
+    android:background="@drawable/fifth_walpp">
 
 // this code is untuk layout todolist pagenya
 // This is for the Add (+) button

@@ -28,6 +28,7 @@
             android:buttonTint="@color/white"
             android:paddingLeft="8dp"
             android:textSize="18sp"
+            android:textColor="@color/white"
 
             ></CheckBox>
 

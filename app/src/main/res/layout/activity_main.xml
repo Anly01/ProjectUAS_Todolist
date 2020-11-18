@@ -8,7 +8,7 @@
     tools:context=".MainActivity"
     android:id="@+id/rootRL"
     android:orientation="vertical"
-    android:background="@drawable/third_walpp">
+    android:background="@drawable/sixth_walpp">
 
     <ImageButton
         android:id="@+id/btnHelp"
