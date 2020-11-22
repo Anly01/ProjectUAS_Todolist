@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 
@@ -18,45 +19,45 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.buttons.Adapter.ToDoAdapter;
+import com.example.buttons.Model.ToDoModel;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class todoPage extends AppCompatActivity {
 
     private static final String TAG = "todoPage";
-    //variables
-    private ArrayList<String> mTasksText = new ArrayList<>();
+    //defining variables
+    private RecyclerView tasksRecyclerView;
+    private ToDoAdapter tasksAdapter;
+    private List<ToDoModel> tasksList;
+
 
     @Override
-    //menampilkan layout dari todolist_layout
+    //menampilkan layout dari todolist_layout.xml
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.todolist_layout);
         Log.d(TAG, "onCreate: started.");
-        initTaskText();
+        //setting the variables
+        tasksRecyclerView = findViewById(R.id.tasksRecyclerView);
+        tasksRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        tasksAdapter = new ToDoAdapter(this);
+        tasksRecyclerView.setAdapter(tasksAdapter);
+        tasksList = new ArrayList<>();
+
+        ToDoModel task = new ToDoModel();
+        task.setTasks("kontol");
+        task.setStatus(1);
+
+        tasksList.add(task);
+        tasksList.add(task);
+        tasksList.add(task);
+        tasksList.add(task);
+
+        tasksAdapter.setTasks(tasksList);
+
     }
-
-    //memasukkan teks pada to do list
-    private void initTaskText (){
-        mTasksText.add("Hello");
-        mTasksText.add("Kami");
-        mTasksText.add("Kelompok 8 1SIMB");
-        mTasksText.add("Ini Apps Kami");
-        mTasksText.add("Hehe");
-
-        initRecyclerView();
-    }
-
-    //memasukkan semua text pada initTaskText kedalam RecyclerView pada todolist_layout.xml
-    private void initRecyclerView (){
-        Log.d(TAG, "initRecyclerView: initRecyclerView");
-
-        RecyclerView recyclerView = findViewById(R.id.tasksRecyclerView);
-        RecyclerView.Adapter adapter = new ToDoAdapter(this, mTasksText);
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        }
 
 }
 

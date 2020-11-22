@@ -1,7 +1,6 @@
 package com.example.buttons.Model;
 
-// defines the structure for individual tasks with the info from database
-// to store item data (name etc)
+// defines the structure for individual tasks to connect it with database.
 
 public class ToDoModel {
     /**
