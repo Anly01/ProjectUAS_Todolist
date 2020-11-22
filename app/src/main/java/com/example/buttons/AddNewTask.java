@@ -46,6 +46,7 @@ public class AddNewTask extends BottomSheetDialogFragment {
         db = new DatabaseHandler(getActivity());
         db.openDatabase();
         //https://www.youtube.com/watch?v=OfLecKbnufc minutes 9
+        // note that manifestnya belum diganti
 
 
     }
