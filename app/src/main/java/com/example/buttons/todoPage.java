@@ -48,7 +48,6 @@ public class todoPage extends AppCompatActivity {
 
         ToDoModel task = new ToDoModel();
         task.setTasks("kontol");
-        task.setStatus(1);
 
         tasksList.add(task);
         tasksList.add(task);
