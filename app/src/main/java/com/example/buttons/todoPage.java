@@ -17,6 +17,7 @@ import android.widget.ImageButton;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -37,6 +38,7 @@ public class todoPage extends AppCompatActivity implements DialogCloseListener {
     private List<ToDoModel> tasksList;
     private DatabaseHandler db;
     private ImageButton addBtn;
+    private ItemTouchHelper itemTouchHelper;
 
 
     @Override
@@ -49,12 +51,18 @@ public class todoPage extends AppCompatActivity implements DialogCloseListener {
         db = new DatabaseHandler(this);
         db.openDatabase();
 
+
+
         tasksRecyclerView = findViewById(R.id.tasksRecyclerView);
         tasksRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         tasksAdapter = new ToDoAdapter(db, this);
         tasksRecyclerView.setAdapter(tasksAdapter);
         tasksList = new ArrayList<>();
         addBtn = findViewById(R.id.btnAddTask);
+
+        itemTouchHelper = new ItemTouchHelper(new RecyclerItemTouchHelper(tasksAdapter));
+        itemTouchHelper.attachToRecyclerView(tasksRecyclerView);
+
         tasksList = db.getAllTasks();
         Collections.reverse(tasksList);
         tasksAdapter.setTasks(tasksList);
@@ -66,17 +74,8 @@ public class todoPage extends AppCompatActivity implements DialogCloseListener {
             }
         });
 
-        /**ToDoModel task = new ToDoModel();
-        task.setTasks("kontol");
-
-        tasksList.add(task);
-        tasksList.add(task);
-        tasksList.add(task);
-        tasksList.add(task);
-
-        tasksAdapter.setTasks(tasksList);
-**/    }
-
+     }
+    // set all the tasks list to the adapter
     @Override
     public void handleDialogClose(DialogInterface dialog) {
         tasksList = db.getAllTasks();

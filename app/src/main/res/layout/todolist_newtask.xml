@@ -8,8 +8,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@null"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:hint="New Task"/>
+        android:hint="New Task"
+        android:paddingTop="7dp"
+        android:layout_marginLeft="10dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
     <Button
         android:id="@+id/newTaskButton"
@@ -18,9 +20,13 @@
         android:layout_below="@id/newTaskText"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:text="Save"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="10dp"
         android:backgroundTint="@color/brown"
+        android:text="Save"
         android:textColor="@color/white"
-        android:textSize="16dp" />
+        android:textSize="16sp" />
 
 </RelativeLayout>

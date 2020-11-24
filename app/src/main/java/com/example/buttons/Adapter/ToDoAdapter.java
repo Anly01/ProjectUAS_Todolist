@@ -92,25 +92,25 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder>{
         return n!=0;
     }
 
-    //insert data to todolist
+    //insert data to todomodel
     public void setTasks (List<ToDoModel> todoList){
         this.todoList = todoList;
         notifyDataSetChanged(); }
 
+    //delete tasks
+    public void deleteTasks(int position){
+        ToDoModel item = todoList.get(position);
+        db.deleteTasks(item.getId());
+        todoList.remove(position);
+        notifyItemRemoved(position); }
+
     //edit text
-    public void editItem (int position){
+    public void editTasks (int position){
         ToDoModel item = todoList.get(position);
         Bundle bundle = new Bundle();
         bundle.putInt("id", item.getId());
         bundle.putString("tasks", item.getTasks());
         AddNewTask fragment = new AddNewTask();
         fragment.setArguments(bundle);
-        fragment.show(activity.getSupportFragmentManager(), AddNewTask.TAG);
-    }
-
-
-
-
-
-
+        fragment.show(activity.getSupportFragmentManager(), AddNewTask.TAG); }
 }
