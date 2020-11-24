@@ -64,8 +64,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
-
     /**
      * Make a yes or no pop up when back navigation is pressed
      */

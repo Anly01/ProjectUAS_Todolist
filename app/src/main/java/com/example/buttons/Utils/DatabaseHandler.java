@@ -18,7 +18,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String ID = "id";
     private static final String TASKS = "tasks";
     private static final String STATUS = "status";
-    private static final String CREATE_TODO_TABLE = "CREATE TABLE"+ TODO_TABLE + "(" + ID + "INTEGER PRIMARY KEY AUTOINCREMENT, "
+    private static final String CREATE_TODO_TABLE = "CREATE TABLE "+ TODO_TABLE + "(" + ID + "INTEGER PRIMARY KEY AUTOINCREMENT, "
                                             + TASKS + "TEXT, " + STATUS + " INTEGER)";
     private SQLiteDatabase db;
 
@@ -35,7 +35,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         //drop the older tables
-        db.execSQL("DROP TABLE IF EXISTS" + TODO_TABLE);
+        db.execSQL("DROP TABLE IF EXISTS " + TODO_TABLE);
         //create new tables
         onCreate(db);
     }
