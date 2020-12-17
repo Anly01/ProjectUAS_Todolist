@@ -45,7 +45,6 @@
         android:layout_marginRight="116dp"
         android:layout_marginBottom="20dp"
         android:background="@drawable/circlelogo1"
-        app:layout_constraintBottom_toTopOf="@+id/btnTodo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
