@@ -13,10 +13,8 @@
         android:layout_marginLeft="10dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
-    <Button
+    <ImageButton
         android:id="@+id/newTaskButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_below="@id/newTaskText"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
@@ -24,9 +22,8 @@
         android:layout_marginEnd="15dp"
         android:layout_marginRight="15dp"
         android:layout_marginBottom="10dp"
-        android:backgroundTint="@color/brown"
-        android:text="Save"
-        android:textColor="@color/white"
-        android:textSize="16sp" />
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:background="@drawable/save1" />
 
 </RelativeLayout>

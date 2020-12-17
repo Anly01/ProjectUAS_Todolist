@@ -17,7 +17,7 @@ import com.example.buttons.Adapter.ToDoAdapter;
 
 public class RecyclerItemTouchHelper extends ItemTouchHelper.SimpleCallback {
 
-    private ToDoAdapter adapter;
+    private final ToDoAdapter adapter;
     public RecyclerItemTouchHelper(ToDoAdapter adapter){
         super(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT);
         this.adapter = adapter;
@@ -29,10 +29,13 @@ public class RecyclerItemTouchHelper extends ItemTouchHelper.SimpleCallback {
         return false;
     }
 
+    // code untuk menjalankan fitur delete dan edit task ketika diswipe
     @Override
     public void onSwiped(@NonNull final RecyclerView.ViewHolder viewHolder, int direction) {
         final int position = viewHolder.getAdapterPosition();
+        //jika swipe left maka jalankan delete task
         if (direction == ItemTouchHelper.LEFT){
+            // alert dialog cancel or yes
             AlertDialog.Builder builder = new AlertDialog.Builder(adapter.getContext());
             builder.setTitle("Delete Task");
             builder.setMessage("Are you sure you want to delete this Task?");
@@ -50,9 +53,12 @@ public class RecyclerItemTouchHelper extends ItemTouchHelper.SimpleCallback {
             });
             AlertDialog dialog = builder.create();
             dialog.show(); }
+        // else maka swipe right maka jalankan edit tasks
         else {adapter.editTasks(position); }
     }
 
+    // untuk mengubah warna tombol todolist saat di swipe, swipe kekanan = edit = green
+    //                                                     swipe kekiri  = delete = merah
     @Override
     public void onChildDraw(Canvas c, RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive){
         super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
@@ -65,24 +71,25 @@ public class RecyclerItemTouchHelper extends ItemTouchHelper.SimpleCallback {
         //if swipe right
         if (dX>0){
             icon = ContextCompat.getDrawable(adapter.getContext(), R.drawable.ic_baseline_edit_24);
-            background = new ColorDrawable(ContextCompat.getColor(adapter.getContext(), R.color.dark_brown)); }
+            background = new ColorDrawable(Color.GREEN); }
         else{
             icon = ContextCompat.getDrawable(adapter.getContext(), R.drawable.ic_baseline_delete_24);
             background = new ColorDrawable(Color.RED); }
 
+        //mengatur posisi icon tong sampah dan icon pensil
         assert icon != null;
         int iconMargin = (itemView.getHeight() - icon.getIntrinsicHeight()) / 2;
         int iconTop = itemView.getTop() + (itemView.getHeight() - icon.getIntrinsicHeight()) / 2;
         int iconBottom = iconTop + icon.getIntrinsicHeight();
 
-        //swipe right
+        //mengatur posisi icon pensil jika swipe right
         if (dX>0){
             int iconLeft = itemView.getLeft() + iconMargin;
             int iconRight = itemView.getLeft() + iconMargin + icon.getIntrinsicWidth();
             icon.setBounds(iconLeft, iconTop, iconRight, iconBottom);
             background.setBounds(itemView.getLeft(), itemView.getTop(), itemView.getLeft() +((int)dX) + backgroundCornerOffset, itemView.getBottom());
         }
-        //swipe left
+        //mengatur posisi icon tongsampah jika swipe left
         else if (dX<0){
             int iconLeft =  itemView.getRight() - iconMargin - icon.getIntrinsicWidth();
             int iconRight = itemView.getRight() -iconMargin;

@@ -4,9 +4,11 @@ import android.app.Activity;
 import android.content.Context;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -30,11 +32,11 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder>{
 
     private static final String TAG = "RecyclerViewAdapter";
     private List<ToDoModel> todoList;
-    private todoPage activity;
-    private DatabaseHandler db;
-
+    private final todoPage activity;
+    private final DatabaseHandler db;
 
     public ToDoAdapter(DatabaseHandler db, todoPage activity) {
+        //define database dan todopage
         this.db = db;
         this.activity = activity;
     }
@@ -46,10 +48,10 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder>{
         public ViewHolder(View itemView) {
             super(itemView);
             tasks = itemView.findViewById(R.id.todoCheckBox);
-            parentLayout = itemView.findViewById(R.id.parent_layout);
-        }
+            parentLayout = itemView.findViewById(R.id.parent_layout); }
     }
 
+    // ngambil layout dari todolist_task_layout.xml untuk ditunjukiin ke layar
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.todolist_task_layout, parent, false);
@@ -109,7 +111,7 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder>{
         ToDoModel item = todoList.get(position);
         Bundle bundle = new Bundle();
         bundle.putInt("id", item.getId());
-        bundle.putString("tasks", item.getTasks());
+        bundle.putString("task", item.getTasks());
         AddNewTask fragment = new AddNewTask();
         fragment.setArguments(bundle);
         fragment.show(activity.getSupportFragmentManager(), AddNewTask.TAG); }

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/background1"
+        android:scaleType="fitXY"></ImageView>
+
+    <TextView
+        android:id="@+id/contacttext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="About Us"
+        android:textSize="30sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="5dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="5dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="10dp"
+        android:background="#8000"
+        android:textStyle="bold"
+        android:textColor="@color/white"/>
+
+    <ScrollView
+        android:layout_below="@id/contacttext"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+        <LinearLayout
+            android:layout_below="@+id/contacttext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp">
+
+                <ImageView
+                    android:id="@+id/anly"
+                    android:layout_width="370dp"
+                    android:layout_height="250dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@mipmap/anly"
+                    tools:layout_editor_absoluteY="56dp" />
+
+                <ImageView
+                    android:id="@+id/ponto"
+                    android:layout_width="370dp"
+                    android:layout_height="250dp"
+                    android:layout_below="@+id/anly"
+                    android:layout_centerHorizontal="true"
+                    android:background="@mipmap/ponto"
+                    tools:layout_editor_absoluteX="62dp"
+                    tools:layout_editor_absoluteY="626dp" />
+
+                <ImageView
+                    android:id="@+id/tan"
+                    android:layout_width="370dp"
+                    android:layout_height="250dp"
+                    android:layout_below="@+id/ponto"
+                    android:layout_centerHorizontal="true"
+                    android:background="@mipmap/tan"
+                    tools:layout_editor_absoluteX="62dp"
+                    tools:layout_editor_absoluteY="438dp" />
+
+                <ImageView
+                    android:layout_width="370dp"
+                    android:layout_height="250dp"
+                    android:layout_below="@+id/tan"
+                    android:layout_centerHorizontal="true"
+                    android:background="@mipmap/steven"
+                    tools:layout_editor_absoluteX="62dp"
+                    tools:layout_editor_absoluteY="245dp" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
+</RelativeLayout>

@@ -2,21 +2,23 @@ package com.example.buttons;
 
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Paint;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Adapter;
-import android.widget.Button;
+import android.view.WindowManager;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -39,6 +41,10 @@ public class todoPage extends AppCompatActivity implements DialogCloseListener {
     private DatabaseHandler db;
     private ImageButton addBtn;
     private ItemTouchHelper itemTouchHelper;
+    private ImageView background;
+    int action;
+    int nomorlogo;
+
 
 
     @Override
@@ -46,35 +52,48 @@ public class todoPage extends AppCompatActivity implements DialogCloseListener {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.todolist_layout);
-        Log.d(TAG, "onCreate: started.");
+        //wallpaper
+        final SharedPreferences settings = getSharedPreferences("PREFS", Context.MODE_PRIVATE);
+        action = settings.getInt("ACTION", 1);
+        background = (ImageView) findViewById(R.id.background);
+        background.setImageResource(getResources().getIdentifier("background"+action, "drawable", getPackageName()));
+
+        //define variabel add new todolist
+        addBtn = findViewById(R.id.btnAddTask);
+        // ganti buttons
+        final SharedPreferences buttons = getSharedPreferences("PREFS", Context.MODE_PRIVATE);
+        nomorlogo = buttons.getInt("NOMOR", 1);
+        addBtn.setBackgroundResource(getResources().getIdentifier("addtask_btn"+nomorlogo, "drawable", getPackageName()));
+
         //setting the variables
+        //database
         db = new DatabaseHandler(this);
         db.openDatabase();
 
-
-
+        //Todolist task
         tasksRecyclerView = findViewById(R.id.tasksRecyclerView);
         tasksRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         tasksAdapter = new ToDoAdapter(db, this);
         tasksRecyclerView.setAdapter(tasksAdapter);
         tasksList = new ArrayList<>();
-        addBtn = findViewById(R.id.btnAddTask);
 
+        //todolist scoll helper
         itemTouchHelper = new ItemTouchHelper(new RecyclerItemTouchHelper(tasksAdapter));
         itemTouchHelper.attachToRecyclerView(tasksRecyclerView);
-
+        //get task from database
         tasksList = db.getAllTasks();
         Collections.reverse(tasksList);
         tasksAdapter.setTasks(tasksList);
 
+        // add function
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AddNewTask.newInstance().show(getSupportFragmentManager(), AddNewTask.TAG);
             }
         });
-
      }
+
     // set all the tasks list to the adapter
     @Override
     public void handleDialogClose(DialogInterface dialog) {
@@ -82,6 +101,14 @@ public class todoPage extends AppCompatActivity implements DialogCloseListener {
         Collections.reverse(tasksList);
         tasksAdapter.setTasks(tasksList);
         tasksAdapter.notifyDataSetChanged();
+    }
+
+    public void onStart() {
+        super.onStart();
+        final SharedPreferences settings = getSharedPreferences("PREFS", Context.MODE_PRIVATE);
+        action = settings.getInt("ACTION", 1);
+        background = (ImageView) findViewById(R.id.background);
+        background.setImageResource(getResources().getIdentifier("background" + action, "drawable", getPackageName()));
     }
 }
 

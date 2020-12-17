@@ -19,6 +19,12 @@
         <activity android:name=".todoPage" />
         <activity android:name=".calendarPage" />
         <activity android:name=".shopPage"/>
+        <activity android:name=".helpPage"/>
+        <activity android:name=".AboutUs"/>
+        <activity android:name=".Faq"/>
+        <activity android:name=".themePage"/>
+        <activity android:name=".buttonPage"/>
+
     </application>
 
 

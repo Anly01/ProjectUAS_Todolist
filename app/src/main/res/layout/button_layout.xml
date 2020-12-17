@@ -16,27 +16,14 @@
         android:src="@drawable/background1"
         android:scaleType="fitXY"></ImageView>
 
-    <ImageButton
-        android:id="@+id/btnHelp"
-        android:layout_width="320dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="596dp"
-        android:layout_marginBottom="12dp"
-        android:background="@drawable/hmpage_helpbtn1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.517"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.703" />
 
     <ImageButton
-        android:id="@+id/btnShop"
-        android:layout_width="320dp"
+        android:id="@+id/brownbtn"
+        android:layout_width="280dp"
         android:layout_height="100dp"
         android:layout_marginTop="528dp"
         android:layout_marginBottom="100dp"
-        android:background="@drawable/hmpg_shopbtn1"
+        android:background="@drawable/changebuttonwhite"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.517"
@@ -45,12 +32,12 @@
         app:layout_constraintVertical_bias="0.388" />
 
     <ImageButton
-        android:id="@+id/btnTodo"
-        android:layout_width="320dp"
+        android:id="@+id/darkbtn"
+        android:layout_width="280dp"
         android:layout_height="100dp"
         android:layout_marginTop="330dp"
         android:layout_marginBottom="295dp"
-        android:background="@drawable/hmpg_tdlbtn1"
+        android:background="@drawable/changebuttonbrown"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.52"
@@ -59,12 +46,12 @@
         app:layout_constraintVertical_bias="0.195" />
 
     <ImageButton
-        android:id="@+id/btnCalendar"
-        android:layout_width="320dp"
+        android:id="@+id/lightbtn"
+        android:layout_width="280dp"
         android:layout_height="100dp"
         android:layout_marginTop="430dp"
         android:layout_marginBottom="196dp"
-        android:background="@drawable/hmpage_clndrbtn1"
+        android:background="@drawable/changebuttonblack"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.52"
@@ -75,8 +62,7 @@
     <androidx.constraintlayout.widget.Group
         android:id="@+id/group"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:constraint_referenced_ids="btnTodo" />
+        android:layout_height="wrap_content" />
 
     <ImageView
         android:id="@+id/logosImage"
@@ -84,7 +70,7 @@
         android:layout_height="230dp"
         android:layout_marginStart="115dp"
         android:layout_marginLeft="115dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="80dp"
         android:layout_marginEnd="116dp"
         android:layout_marginRight="116dp"
         android:layout_marginBottom="20dp"
@@ -94,7 +80,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Faq">
+
+    <ImageView
+        android:id="@+id/background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/background1"
+        android:scaleType="fitXY"></ImageView>
+
+    <TextView
+        android:id="@+id/faqText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="FAQ"
+        android:textSize="30sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="#9000"
+        android:textStyle="bold"
+        android:textColor="@color/white"/>
+
+    <TextView
+        android:id="@+id/todolist"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/faqText"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="#9000"
+        android:text="How to use To Do List?"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/jelastodo"
+        android:background="#9000"
+        android:textSize="20sp"
+        android:layout_below="@id/todolist"
+        android:textColor="@color/white"
+        android:padding="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tap the Add (+) button to add a new task, swipe the tasks to the left to delete the task, or swipe right to edit the tasks"/>
+
+    <TextView
+        android:id="@+id/calendar"
+        android:layout_width="283dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/jelastodo"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="#9000"
+        android:paddingLeft="5dp"
+        android:text="How to use Calendar?"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+    <TextView
+        android:padding="10dp"
+        android:background="#9000"
+        android:layout_marginRight="10dp"
+        android:id="@+id/jelascalendar"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:layout_below="@+id/calendar"
+        android:layout_marginLeft="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select on the date you want to set reminder on. Type the name of the event on the text bar. Press the save button to save the reminder."/>
+
+    <TextView
+        android:id="@+id/wallpaper"
+        android:layout_width="288dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/jelascalendar"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="#9000"
+        android:paddingLeft="5dp"
+        android:text="How to use Theme?"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+    <TextView
+        android:padding="10dp"
+        android:background="#9000"
+        android:textColor="@color/white"
+        android:layout_marginRight="10dp"
+        android:textSize="20sp"
+        android:layout_below="@id/wallpaper"
+        android:layout_marginLeft="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tap 'Wallpaper' Button and pick your desired wallpaper to change your current wallpaper. Tap the 'Buttons' button, and pick your desired colour, to change current buttons."/>
+
+
+
+</RelativeLayout>

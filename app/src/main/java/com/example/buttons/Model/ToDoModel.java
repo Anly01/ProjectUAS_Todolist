@@ -6,7 +6,7 @@ public class ToDoModel {
     /**
      * Variables
      */
-    private int id, status;
+    private int id, status, score;
     private String tasks;
 
     public int getId() {
